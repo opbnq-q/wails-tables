@@ -1,25 +1,3 @@
-# NTO
-
-## Задачи
-
-- [x] Migrator
-- [x] Crud service generator (based on gorm gen)
-- [x] Easy init without git repository (like create-nto-app)
-- [x] Excel export
-- [x] Models validation logic (callbacks and other stuff)
-- [x] Models [linter](https:/github.com/kuzgoga/gormlint)
-- [x] Auto-generated frontend
-
-## Инициализация
-Для того чтобы использовать этот шаблон, выполните команды:
-```shell
-curl -O https://proxy.golang.org/github.com/kuzgoga/nto-boilerplate/@v/v1.1.7.zip
-```
-Для Windows:
-```shell
-Invoke-WebRequest -Uri https://proxy.golang.org/github.com/kuzgoga/nto-boilerplate/@v/v1.1.7.zip -OutFile v1.1.7.zip
-```
-
 ## Установка
 
 Для разработки необходимы следующие инструменты:
