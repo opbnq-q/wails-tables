@@ -1,118 +1,56 @@
-# NTO
+## 🧱 Dependencies
 
-## Задачи
+Make sure the following Go tools are installed before proceeding:
 
-- [x] Migrator
-- [x] Crud service generator (based on gorm gen)
-- [x] Easy init without git repository (like create-nto-app)
-- [x] Excel export
-- [x] Models validation logic (callbacks and other stuff)
-- [x] Models [linter](https:/github.com/kuzgoga/gormlint)
-- [x] Auto-generated frontend
+### 🔧 `nto-cli`
 
-## Инициализация
-Для того чтобы использовать этот шаблон, выполните команды:
-```shell
-curl -O https://proxy.golang.org/github.com/kuzgoga/nto-boilerplate/@v/v1.1.6.zip
-```
-Для Windows:
-```shell
-Invoke-WebRequest -Uri https://proxy.golang.org/github.com/kuzgoga/nto-boilerplate/@v/v1.1.6.zip -OutFile v1.1.6.zip
-```
-
-## Установка
-
-Для разработки необходимы следующие инструменты:
-
-- [Node.js](https://nodejs.org/en)
-- [Golang](https://go.dev/dl/)
-- [VSCode](https://code.visualstudio.com/) или [Goland](https://cloud.gogacoder.ru/s/pZJzpeNSprmWDB8)
-- ~~[UPX](https://github.com/upx/upx/releases/latest) - для сжатия.~~
-- [Git](https://git-scm.com/)
-- [Obsidian](https://obsidian.md/)
-- Wails3
-- MinGw-64 (необязательно): https://jmeubank.github.io/tdm-gcc/
-
-## Разработка
-
-### Hot Reload
-
-Для запуска приложения в режиме разработчика используйте эту команду в директории проекта:
-
-```
-wails3 dev
-```
-
-### Генерация TS биндингов
-
-Для обновления API для TypeScript используйте команду:
-
-```
-wails3 generate bindings -ts
-```
-
-## Начало работы
-Установите следующие утилиты перед началом работы:
-```shell
-go install -v github.com/wailsapp/wails/v3/cmd/wails3@latest
-```
-```shell
+Used to generate code from internal models.
+```bash
 go install github.com/opbnq-q/nto-cli@latest
 ```
-```shell
+
+### 🛠️ `gorm gen` (`crudgen`)
+
+Used for generating GORM-based CRUD operations.
+```bash
 go install github.com/kuzgoga/crudgen/cmd/crudgen@latest
 ```
-```shell
-go install github.com/kuzgoga/gormlint/cmd/gormlint@latest
+
+### 🎨 `wails3`
+
+Used to build modern desktop applications using Go + Web technologies.
+```bash
+go install -v github.com/wailsapp/wails/v3/cmd/wails3@latest
 ```
 
-## Сборка
+---
 
-Для финальной сборки запустите эту команду в директории проекта:
+## 📦 Code Generation
 
-На Linux/Mac OS:
-```
-PRODUCTION=true wails3 build
-```
+After installing the dependencies, run the following command to generate code from your model definitions:
 
-На Windows:
-```
-$env:PRODUCTION="true"; wails3 build
+```bash
+nto-cli ./internal/models
 ```
 
-**Перед релизом не забыть**:
-- убедиться, что дефолтные данные правильные
-- убедиться, что приложение запускается
-- (опционально) поместить все нужные asset'ы в папку assets
-- приложить сопроводительную записку.
+This will auto-generate the boilerplate based on the structure and annotations in your `./internal/models` directory.
 
-## Работа без GitHub
+---
 
-Настройте прокси для скачивания зависимостей через прокси:
+## 📁 Project Structure
 
-```
-go env -w GOPROXY="https://proxy.golang.org,direct"
-```
-
-## CRUD generator
-
-Установите crudgen:
-
-```
-go install git.gogacoder.ru/NTO/crudgen/cmd/crudgen@latest
+```text
+.
+├── internal
+│   └── models         # Your application's data models
+├── main.go            # Entry point
+└── README.md          # This file
 ```
 
-Сгенерируйте DAL:
+---
 
-```
-cd gen
-go run gen.go
-```
+## 📌 Notes
 
-Запустите crudgen:
-
-```
-crudgen -p internal
-```
-
-Не забудьте добавить новые модели в `Entities`, а сервисы в `Services`.
+- Make sure your Go environment is properly configured (`go env`).
+- Ensure `$GOPATH/bin` is in your system `PATH` to use the installed tools.
+- Regenerate code whenever you change your model definitions.
