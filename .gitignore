@@ -1,0 +1,11 @@
+bin/
+database.db
+.task/
+nto-cli/
+/**/cli.exe
+/**/dist/
+.xlsx
+build/appimage
+build/nfpm
+build/nsis
+/**/node_modules

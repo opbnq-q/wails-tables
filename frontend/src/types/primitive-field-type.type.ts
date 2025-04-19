@@ -1,0 +1,1 @@
+export type PrimitiveFieldType = "date" | "number" | "string" | "boolean" | "multiple"

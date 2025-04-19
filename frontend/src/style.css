@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html, body, .background {
+    background: white;
+    color: rgb(51, 65, 85);
+}
+
+.secondary-background {
+    background: var(--p-content-background)
+}
+
+.native-border {
+    border: 1px solid var(--p-select-border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body, .background {
+        background: #121212;
+        color: white;
+    }
+
+    .native-border {
+        border: 1px solid rgb(100, 100, 109);
+    }
+
+}

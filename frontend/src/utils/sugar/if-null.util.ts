@@ -1,0 +1,1 @@
+export const ifNull = (data: any, elseData: any) => data? data : elseData
